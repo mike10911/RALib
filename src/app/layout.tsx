@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { FloatingNav } from "@/components/ui/floating-navbar";
+import { SparklesCore } from "@/components/ui/sparkles";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +18,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <FloatingNav navItems={[{name: "Home", link: "/"}, {name: "Books", link: "/"}]}/>
+      <SparklesCore
+          id="tsparticlesfullpage"
+          background="transparent"
+          minSize={0.8}
+          maxSize={1.4}
+          particleDensity={3}
+          className="w-full h-full padding-0 m-0 fixed inset-0 z-10 pointer-events-none"
+          particleColor="#FFFFFF"
+        />
       <body className={inter.className}>{children}</body>
     </html>
   );
